@@ -5,4 +5,4 @@ def connect(wifi,pwd):
     sta_if.connect(wifi,pwd) # Connect to an AP
     # sta_if.connect("OnePlus 8 Pro", "n6ggk5gs") # Connect to an AP
     print(sta_if.ifconfig())
-    #sta_if.active(False)
+

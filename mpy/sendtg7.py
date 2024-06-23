@@ -8,15 +8,16 @@ def send_photo(token, chat_id, photo_path, caption):
   with open(photo_path, 'rb') as photo:
     headers={"Content-Type": "multipart/form-data; boundary=97d81ac404017fec19458e34bae65b01"}
     data=b'--97d81ac404017fec19458e34bae65b01\r\nContent-Disposition: form-data; \
-    name="chat_id"\r\n\r\n159085018\r\n--97d81ac404017fec19458e34bae65b01\r\n \
+    name="chat_id"\r\n\r\n'+chat_id+b'\r\n--97d81ac404017fec19458e34bae65b01\r\n \
     \r\nContent-Disposition: form-data; name="caption"\r\n\r\n'+caption+ \
     b'\r\n--97d81ac404017fec19458e34bae65b01\r\n \
     Content-Disposition: form-data; name="photo"; filename="image.jpg"\r\n\r\n'
-    print(data)
+    #print(data)
     f=open(photo_path,"rb")
     imgbstr=f.read()
     f.close()
     data=data+imgbstr+b'\r\n--97d81ac404017fec19458e34bae65b01--\r\n\r\n'
+    #print(data)
     r = requests.post(url,headers=headers,data=data)
   return r.json()
 # Функция отправки картинки с заголовком_____________   

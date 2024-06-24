@@ -24,6 +24,7 @@ def run(tfile):
     camera.init()
 #    led.on()
     led = PWM(Pin(4), 5000)
+#   led duty - яркость 0 - 1024
     led.duty(150)
     sleep(1)
     buf = camera.capture()
